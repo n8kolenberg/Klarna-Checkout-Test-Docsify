@@ -1,30 +1,39 @@
 ## Limitations
-Due to using Postman to generate the requests, the ```html_snippet``` returns within the tool and can therefore not be dynamically generated into a designated div on a test website.
+Due to using Postman to generate the requests, the ```html_snippet``` returns within the tool and can therefore not be dynamically generated into the designated div on my test site.
 
 ---
 
 ## Manual Render Trials
 >I took the ```html_snippet```, cleaned it up and added it to my test server, and the Klarna Checkout Widget does then indeed render :ok_hand: <br>
 
-![Alt Text](https://res.cloudinary.com/n8dawg/image/upload/v1531073336/Checkout.png 'Checkout Widget Renders')
+![Checkout Widget Renders](https://res.cloudinary.com/n8dawg/image/upload/v1531073336/Checkout.png 'Checkout Widget Renders')
+___
 
-> After filling in the Checkout Form, Klarna would send a push notification to the merchant via the ```merchant_urls.push``` url in the [merchant_urls](/order-id?id=merchant-data) object in the ```POST``` request. This push notification is for the merchant to create the order in their system.  
+!> Unfortunately, due to the authentication issues previously explained and as I'm using test urls for the ```merchant_urls``` object, I'm not able to successfully submit the Checkout form data and therefore cannot render the Klarna Confirmation dynamically :disappointed:
 
-!> Unfortunately, due to the authentication issues previously explained and as I'm using test urls for the ```merchant_urls``` object, I'm not able to submit the Checkout form data and therefore cannot render the Klarna Confirmation dynamically :disappointed:
-
-![Alt Text](https://res.cloudinary.com/n8dawg/image/upload/v1531073942/error_authentication.png 'Same Authentication Error')
+![Same Auth Error](https://res.cloudinary.com/n8dawg/image/upload/v1531073942/error_authentication.png 'Same Authentication Error')
 
 ___
 
-> I also tried taking the ```order_id``` and performing a ```GET``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80``` to get the html snippet returned for the Confirmation widget, but I unfortunately get an error stating that no such order exists. <br>
+> After filling in the Checkout form, Klarna would send a push notification to the merchant via the ```merchant_urls.push``` url in the [merchant_urls](/order-id?id=merchant-data) object in the ```POST``` request. This push notification is for the merchant to create the order in their system and can then acknowledge to Klarna that the order has been registered by sending a ```POST``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/{order_id}/acknowledge```.
+<br>
 
-![Alt Text](https://res.cloudinary.com/n8dawg/image/upload/v1531075828/no_such_order.png 'No such order exists?')
+> I tried using the ```order_id``` and performing a ```GET``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80``` to get the html snippet returned for the Confirmation widget, but I unfortunately get an error stating that no such order exists. <br>
+I get the same error message when trying to mimick a ```POST``` request as a merchant to acknowledge the order as described above.
 
+![No such order exists](https://res.cloudinary.com/n8dawg/image/upload/v1531075828/no_such_order.png 'No such order exists?')
 
 ___
+
+
+## Conclusion
+?> Unfortunately, due to the issues mentioned, I was not able to dynamically generate the Klarna Checkout Form or the Confirmation Form. I believe that implementing one of the Klarna SDKs would allow for these issues to be resolved. However, since the Developer Reference stated that it was possible to send requests to the API via JavaScript, I chose this direction for the test. <br> Regardless, it was an interesting opportunity and experience for me to learn more about Klarna's Checkout process and the technology behind it. I would really like to continue this learning process with Klarna.
+
+___
+
 
 ## Cleaned up html_snippet
-The following is the ```html_snippet``` used after cleaning it up. It was received as a response from the Klarna Checkout API _create a new order_ request.
+The following is the ```html_snippet``` I used after cleaning it up. It was received as a response from the Klarna Checkout API _create a new order_ request.
 ```html
 <div id="klarna-checkout-container" style="overflow-x: hidden;">
     <div id="klarna-unsupported-page">

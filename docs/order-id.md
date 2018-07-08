@@ -1,10 +1,10 @@
 ## API Request to Create Order
 
-?> The ```order_id``` value received from Klarna is _**2ee89230-ebf6-4437-a51f-cb23c2736a80**_
+?> Firstly, the ```order_id``` value received from Klarna is _**2ee89230-ebf6-4437-a51f-cb23c2736a80**_
 
 To get the ```order_id``` value, I used Klarna's Checkout API endpoint and AJAX to generate a ```POST``` request to create an order.
 
-Particularly, I used the [Axios](https://github.com/axios/axios ':target=_blank') library to generate async requests.
+For generating AJAX requests, I used the [Axios](https://github.com/axios/axios ':target=_blank') library.
 
 ```javascript
 
@@ -19,7 +19,6 @@ axios.post(url, {
         username: username,
         password: password
     }
-
 }).then(function (response) {
     console.log('Authenticated!');
     console.log(`Data: ${response}`);
@@ -28,18 +27,18 @@ axios.post(url, {
 });
 ```
 
-> ```merchant_data``` in this case is an object containing the [mandatory merchant data](/merchant_data.md), checkout product details and a merchant object consisting of urls to which Klarna can redirect users after filling in the Checkout form. This is as described in the [Klarna Checkout API](https://developers.klarna.com/api/#checkout-api ':target=_blank') reference. <br>
+> ```merchant_data``` is an object containing the [mandatory merchant data](/merchant_data.md), checkout product details and a ```merchant_urls``` object consisting of urls to which Klarna can a.o. send the merchant a post notification of order completion and redirect users to the confirmation page after filling in the Checkout form. This is as defined in the [Klarna Checkout API](https://developers.klarna.com/api/#checkout-api ':target=_blank') reference. <br>
 
 ___
 
 ## Blocking issues
-##### However, I stumbled upon 2 issues when doing so <br>
+##### When performing the requests, I stumbled upon 2 issues: <br>
 
-!> **CORS** - Cross Origin Resource Sharing Blocked by browser as the resource is not on the same origin from which I made the request<br>
+!> **CORS** - Cross Origin Resource Sharing Blocked by the browser as the resource is not on the same origin from which I made the request<br>
 
-?> **Solution**: Implemented [Chrome extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi ':target=_blank') allowing to request any site / resource with ajax from any source. It adds _'Allow-Control-Allow-Origin: *'_ header to the response.
+?> **Solution**: Implemented [Chrome extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi ':target=_blank') allowing to request any site / resource with AJAX from any source. It adds _'Allow-Control-Allow-Origin: *'_ header to the response.
 
-!>**401: Request Not Authorised** - It's stated in the Klarna API documentation that the username is not the same as the merchant ID, and that it consists of a Merchant ID combined with a random string. I therefore signed up for a test account and acquired test API Credentials.
+!>**401: Request Not Authorised** - It's stated in the [Klarna API reference](https://developers.klarna.com/api/#authentication ':target=_blank') that the username is not the same as the merchant ID, and that it consists of a Merchant ID combined with a random string. I therefore signed up for a test account and acquired test API Credentials.
 
 ?> _Test API Credentials:_<br>
 Username: PK03011_25c46e54003e <br>
@@ -48,8 +47,8 @@ Password: 9DnLpqfMjAqOTkJ <br>
 ___
 
 ## Additional Testing
-### Trying with the new test API Credentials
-I tried the request again and still stumbled on the Request not Authorized error. I researched what other methods there are to add authentication headers to the request and tried again but with no luck.
+### Requests with New Test API Credentials
+I tried the request again and still stumbled upon the Request Not Authorized error. I researched what other methods there are to add authentication headers to the request and tried again but with no luck.
 
 ```javascript 
 /*================================================== 
@@ -74,7 +73,6 @@ axios.post(url, {
 });
 
 
-
 /*==================================================
  Testing with jQuery Ajax method and adding the headers 
  before sending XHR request or as headers object 
@@ -96,24 +94,28 @@ $.ajax({
 });
 ```
 > Unfortunately, I still received the same error message:
-![Alt Text 401](https://res.cloudinary.com/n8dawg/image/upload/v1531067091/401.png '401 Unauthorized')<br>
+![401](https://res.cloudinary.com/n8dawg/image/upload/v1531067091/401.png '401 Unauthorized')<br>
 
 ___ 
 
 ## Using Postman
-I then used [Postman](https://www.getpostman.com/) to generate the request to the Klarna Checkout API as this tool doesn't have the same browser related restrictions.
+I then used [Postman](https://www.getpostman.com/) to generate the request to the Klarna's Checkout API as this tool doesn't have the same browser related restrictions.
 
-?> I added the initially provided the username and password in the Authentication settings as Basic Auth.
+?> I added the initially provided username and password in the Authentication settings as Basic Auth.
 
-![Alt Text](https://res.cloudinary.com/n8dawg/image/upload/v1531070848/postman_authentication.png 'Postman Auth Settings') 
+![Postman Auth Settings](https://res.cloudinary.com/n8dawg/image/upload/v1531070848/postman_authentication.png 'Postman Auth Settings') 
+___
 
-?> Then, I added the required request parameters in JSON and sent the ```POST``` request to ```https://api.playground.klarna.com/checkout/v3/orders/``` <br>
+?> Then, I added the required request parameters in JSON and sent the ```POST``` request to ```https://api.playground.klarna.com/checkout/v3/orders/```. The response was successful and includes the ```order_id```! :tada: <br>
 
-![Alt Text](https://res.cloudinary.com/n8dawg/image/upload/v1531071446/postman_response.png ':target=_blank')
+![JSON Body](https://res.cloudinary.com/n8dawg/image/upload/v1531071446/postman_response.png 'JSON Body')
+___
 
 ?>The response also contains the HTML Snippet needed to render the Klarna Checkout Widget :raised_hands: <br>
 
-![Alt Text](https://res.cloudinary.com/n8dawg/image/upload/v1531071668/postman_response_html_snippet.png ':target=_blank')
+![HTML_SNIPPET](https://res.cloudinary.com/n8dawg/image/upload/v1531071668/postman_response_html_snippet.png 'html_snippet in response')
+
+---
 
 <p align="center">
   <img src="https://res.cloudinary.com/n8dawg/image/upload/v1531076322/patrick_victory.gif">
@@ -124,7 +126,7 @@ I then used [Postman](https://www.getpostman.com/) to generate the request to th
 ___
 
 ## Merchant Data
-The following is the merchant_data used in the ```POST``` request to create an order, containing the mandatory request parameters as described in the [Checkout API Reference](https://developers.klarna.com/api/#checkout-api ':target=_blank'):
+The following is the ```merchant_data``` object I used in the ```POST``` request to create an order, containing the mandatory request parameters as described in the [Checkout API Reference](https://developers.klarna.com/api/#checkout-api ':target=_blank'):
 
 
 ```javascript

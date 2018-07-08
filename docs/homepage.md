@@ -25,9 +25,9 @@ For this section, we'll call our online user _Lagertha_ :girl:, and the site she
 ![Client2Server Communication](https://res.cloudinary.com/n8dawg/image/upload/v1531058456/s2s.png "User interaction with Merchant and Request and Response between Merchant and Klarna")
 
 
-### So SMOOOOTH
+### So SMOOOTH
 <p align="center">
-  <img  src="https://res.cloudinary.com/n8dawg/image/upload/v1531078353/smooth.jpg">
+  <img  src="https://res.cloudinary.com/n8dawg/image/upload/v1531081515/smoooth-fish.gif">
 </p>
 
 
