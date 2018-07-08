@@ -35,7 +35,7 @@ ___
 ## Blocking issues
 ##### However, I stumbled upon 2 issues when doing so <br>
 
-!> **CORS** - Cross Origin Resource Sharing Blocked by browser ad the resource is not on the same origin from which I made the request<br>
+!> **CORS** - Cross Origin Resource Sharing Blocked by browser as the resource is not on the same origin from which I made the request<br>
 
 ?> **Solution**: Implemented [Chrome extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi ':target=_blank') allowing to request any site / resource with ajax from any source. It adds _'Allow-Control-Allow-Origin: *'_ header to the response.
 
@@ -115,7 +115,10 @@ I then used [Postman](https://www.getpostman.com/) to generate the request to th
 
 ![Alt Text](https://res.cloudinary.com/n8dawg/image/upload/v1531071668/postman_response_html_snippet.png ':target=_blank')
 
-#### Potential Victory GIF
+<p align="center">
+  <img src="https://res.cloudinary.com/n8dawg/image/upload/v1531076322/patrick_victory.gif">
+</p>
+
 
 
 ___
