@@ -2,6 +2,6 @@
 
 * [Get order_id](/order-id)
 
-* Render Klarna Checkout Widget
+* [Render Klarna Checkout](/checkout)
 
-* Render Klarna Confirmation
+* [Render Klarna Confirmation](/comfirmation)
