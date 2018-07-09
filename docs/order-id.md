@@ -27,7 +27,7 @@ axios.post(url, {
 });
 ```
 
-> ```merchant_data``` is an object containing the [mandatory merchant data](/order-id?id=merchant-data), checkout product details and a ```merchant_urls``` object consisting of urls to which Klarna can a.o. send the merchant a push notification of order completion and redirect users to the confirmation page after filling in the Checkout form. This is as defined in the [Klarna Checkout API](https://developers.klarna.com/api/#checkout-api ':target=_blank') reference. <br>
+> ```merchant_data``` is an object containing the [mandatory merchant data](/order-id?id=merchant-data), checkout product details and a ```merchant_urls``` object consisting of urls to which Klarna can a.o. send the merchant a push notification signifying order completion and redirect users to the confirmation page after filling in the Checkout form. This is as defined in the [Klarna Checkout API](https://developers.klarna.com/api/#checkout-api ':target=_blank') reference. <br>
 
 ___
 
