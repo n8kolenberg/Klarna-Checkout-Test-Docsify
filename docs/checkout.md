@@ -29,7 +29,7 @@ ___
 
 
 ## Conclusion
-?> Unfortunately, due to the issues mentioned, I was not able to dynamically generate the Klarna Checkout Form or the Confirmation Form. I believe that implementing one of the Klarna SDKs would allow for these issues to be resolved. However, since the Developer Reference stated that it was possible to send requests to the API via JavaScript, I chose this direction for the test. <br><br> Regardless, it was an interesting opportunity and experience for me to learn more about Klarna's Checkout process and the technology behind it. I would really love to continue this learning process with Klarna.
+?> Unfortunately, due to the issues mentioned, I was not able to dynamically generate the Klarna Checkout form or the Confirmation form. I believe that implementing one of the Klarna SDKs would allow for these issues to be resolved. However, since the Developer Reference stated that it was possible to send requests to the API via JavaScript, I chose this direction for the test. <br><br> Regardless, it was an interesting opportunity and experience for me to learn more about Klarna's Checkout process and the technology behind it. I would really love to continue this learning process with Klarna.
 
 ___
 
