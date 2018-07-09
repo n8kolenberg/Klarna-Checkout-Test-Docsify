@@ -118,7 +118,7 @@ ___
 ![JSON Body and Response](https://res.cloudinary.com/n8dawg/image/upload/v1531071446/postman_response.png 'JSON Body and Response')
 ___
 
-?>The response also contains the HTML Snippet needed to render the Klarna Checkout Widget :raised_hands: <br>
+?>The response also contains the HTML Snippet needed to render the Klarna Checkout form :raised_hands: <br>
 
 ![HTML_SNIPPET](https://res.cloudinary.com/n8dawg/image/upload/v1531071668/postman_response_html_snippet.png 'html_snippet in response')
 
