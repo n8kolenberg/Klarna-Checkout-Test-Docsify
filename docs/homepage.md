@@ -22,12 +22,14 @@ For this section, we'll call our online user _Lagertha_ :girl:, and the site she
 
 
 ### Overview of Checkout Process and Client to Server Communication
-![Client2Server Communication](https://res.cloudinary.com/n8dawg/image/upload/v1531058456/s2s.png "User interaction with Merchant and Request and Response between Merchant and Klarna")
+<p align="center">
+  <img  width=500 height=500 src="https://res.cloudinary.com/n8dawg/image/upload/v1531058456/s2s.png">
+</p>
 
 
 ### So SMOOOTH
 <p align="center">
-  <img  src="https://res.cloudinary.com/n8dawg/image/upload/v1531081515/smoooth-fish.gif">
+  <img  src="https://res.cloudinary.com/n8dawg/image/upload/v1531110521/fish.gif">
 </p>
 
 

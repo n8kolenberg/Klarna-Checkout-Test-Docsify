@@ -16,18 +16,20 @@ ___
 ___
 
 > After filling in the Checkout form, Klarna would send a push notification to the merchant via the ```merchant_urls.push``` url in the [merchant_urls](/order-id?id=merchant-data) object in the ```POST``` request. This push notification is for the merchant to create the order in their system and can then acknowledge to Klarna that the order has been registered by sending a ```POST``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/{order_id}/acknowledge```.
-<br>
+<br> 
+___
 
-> I tried using the ```order_id``` and performing a ```GET``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80``` to get the html snippet returned for the Confirmation widget, but I unfortunately get an error stating that no such order exists. <br>
-I get the same error message when trying to mimick a ```POST``` request as a merchant to acknowledge the order as described above.
+!> I tried using the ```order_id``` and performing a ```GET``` request to ```https://api.playground.klarna.com/checkout/v3/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80``` and I do indeed see my order return, but the status is still set to checkout_incomplete and so the html_snippet is still set to be the Checkout Widget. <br>
 
-![No such order exists](https://res.cloudinary.com/n8dawg/image/upload/v1531075828/no_such_order.png 'No such order exists?')
+!> I then tried to acknowledge the purchase by sending a ```POST``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80/acknowledge``` to see if that changes the status of the order so that I could get the html_snippet returned for the Confirmation Widget by performing the previous call again, but I unfortunately get an error stating that no such order exists. <br>
+
+![No such order exists](https://res.cloudinary.com/n8dawg/image/upload/v1531110122/acknowledge.png 'No such order exists?')
 
 ___
 
 
 ## Conclusion
-?> Unfortunately, due to the issues mentioned, I was not able to dynamically generate the Klarna Checkout Form or the Confirmation Form. I believe that implementing one of the Klarna SDKs would allow for these issues to be resolved. However, since the Developer Reference stated that it was possible to send requests to the API via JavaScript, I chose this direction for the test. <br><br> Regardless, it was an interesting opportunity and experience for me to learn more about Klarna's Checkout process and the technology behind it. I would really like to continue this learning process with Klarna.
+?> Unfortunately, due to the issues mentioned, I was not able to dynamically generate the Klarna Checkout Form or the Confirmation Form. I believe that implementing one of the Klarna SDKs would allow for these issues to be resolved. However, since the Developer Reference stated that it was possible to send requests to the API via JavaScript, I chose this direction for the test. <br><br> Regardless, it was an interesting opportunity and experience for me to learn more about Klarna's Checkout process and the technology behind it. I would really love to continue this learning process with Klarna.
 
 ___
 
