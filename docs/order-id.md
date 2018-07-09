@@ -115,7 +115,7 @@ ___
 
 ?> Then, I added the required request parameters in JSON and sent the ```POST``` request to ```https://api.playground.klarna.com/checkout/v3/orders/```. The response was successful and includes the ```order_id```! :tada: <br>
 
-![JSON Body](https://res.cloudinary.com/n8dawg/image/upload/v1531071446/postman_response.png 'JSON Body')
+![JSON Body and Response](https://res.cloudinary.com/n8dawg/image/upload/v1531071446/postman_response.png 'JSON Body and Response')
 ___
 
 ?>The response also contains the HTML Snippet needed to render the Klarna Checkout Widget :raised_hands: <br>
