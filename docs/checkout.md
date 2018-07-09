@@ -35,7 +35,7 @@ ___
 
 
 ## Cleaned up html_snippet
-The following is the ```html_snippet``` I used after cleaning it up. It was received as a response from the Klarna Checkout API _create a new order_ request.
+The following is the ```html_snippet``` I used after cleaning it up. It was received as a response to the Klarna Checkout API _create a new order_ request.
 ```html
 <div id="klarna-checkout-container" style="overflow-x: hidden;">
     <div id="klarna-unsupported-page">
