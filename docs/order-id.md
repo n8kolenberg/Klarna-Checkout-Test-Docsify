@@ -38,7 +38,7 @@ ___
 
 ?> **Solution**: Implemented [Chrome extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi ':target=_blank') allowing to request any site / resource with AJAX from any source. It adds _'Allow-Control-Allow-Origin: *'_ header to the response.
 
-!>**401: Request Not Authorised** - It's stated in the [Klarna API reference](https://developers.klarna.com/api/#authentication ':target=_blank') that the username is not the same as the merchant ID, and that it consists of a Merchant ID combined with a random string. I therefore signed up for a test account and acquired test API Credentials.
+!>**401: Request Not Authorised** - It's stated in the [Klarna API reference](https://developers.klarna.com/api/#authentication ':target=_blank') that the username is not the same as the merchant ID, and that it consists of a merchant ID combined with a random string. I therefore signed up for a test account and acquired test API Credentials.
 
 ?> _Test API Credentials:_<br>
 Username: PK03011_25c46e54003e <br>
