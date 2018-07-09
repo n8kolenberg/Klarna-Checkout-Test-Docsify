@@ -113,7 +113,7 @@ I then used [Postman](https://www.getpostman.com/) to generate the request to th
 ![Postman Auth Settings](https://res.cloudinary.com/n8dawg/image/upload/v1531070848/postman_authentication.png 'Postman Auth Settings') 
 ___
 
-?> Then, I added the required request parameters in JSON and sent the ```POST``` request to ```https://api.playground.klarna.com/checkout/v3/orders/```. The response was successful and includes the ```order_id```! :tada: <br>
+?> Then, I added the required request parameters in JSON and sent the ```POST``` request to ```https://api.playground.klarna.com/checkout/v3/orders/```. The response is then successful and includes the ```order_id```! :tada: <br>
 
 ![JSON Body and Response](https://res.cloudinary.com/n8dawg/image/upload/v1531071446/postman_response.png 'JSON Body and Response')
 ___
