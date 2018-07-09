@@ -27,14 +27,14 @@ axios.post(url, {
 });
 ```
 
-> ```merchant_data``` is an object containing the [mandatory merchant data](/order-id?id=merchant-data), checkout product details and a ```merchant_urls``` object consisting of urls to which Klarna can a.o. send the merchant a post notification of order completion and redirect users to the confirmation page after filling in the Checkout form. This is as defined in the [Klarna Checkout API](https://developers.klarna.com/api/#checkout-api ':target=_blank') reference. <br>
+> ```merchant_data``` is an object containing the [mandatory merchant data](/order-id?id=merchant-data), checkout product details and a ```merchant_urls``` object consisting of urls to which Klarna can a.o. send the merchant a push notification of order completion and redirect users to the confirmation page after filling in the Checkout form. This is as defined in the [Klarna Checkout API](https://developers.klarna.com/api/#checkout-api ':target=_blank') reference. <br>
 
 ___
 
 ## Blocking issues
 ##### When performing the requests, I stumbled upon 2 issues: <br>
 
-!> **CORS** - Cross Origin Resource Sharing Blocked by the browser as the resource is not on the same origin from which I made the request<br>
+!> **CORS** - Cross Origin Resource Sharing blocked by the browser as the resource is not on the same origin from which I made the request<br>
 
 ?> **Solution**: Implemented [Chrome extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi ':target=_blank') allowing to request any site / resource with AJAX from any source. It adds _'Allow-Control-Allow-Origin: *'_ header to the response.
 
@@ -75,8 +75,15 @@ axios.post(url, {
 
 /*==================================================
  Testing with jQuery Ajax method and adding the headers 
- before sending XHR request or as headers object 
+ before sending XHR request OR as headers object 
  */
+ 
+ function make_base_auth(user, password) {
+    var tok = user + ':' + password;
+    var hash = btoa(tok);
+    return 'Basic ' + hash;
+}
+ 
 $.ajax({
     headers: {
         "Authorization": `Basic ${basicAuth}`
@@ -86,9 +93,9 @@ $.ajax({
     contentType: "application/json",
     crossDomain: true,
     data: JSON.stringify(merchant_data),
-    //   beforeSend: function (xhr){ 
-    //         xhr.setRequestHeader('Authorization', make_base_auth(USERNAME, PASSWORD)); 
-    //     },
+       beforeSend: function (xhr){ 
+             xhr.setRequestHeader('Authorization', make_base_auth(username, password)); 
+         },
 }).done(function (response) {
     console.log("Data: ", response);
 });
