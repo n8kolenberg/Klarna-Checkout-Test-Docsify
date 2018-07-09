@@ -4,7 +4,7 @@ Due to using Postman to generate the requests, the ```html_snippet``` returns wi
 ---
 
 ## Manual Render Trials
->I took the ```html_snippet```, cleaned it up and added it to my test server, and the Klarna Checkout Widget does then indeed render :ok_hand: <br>
+>I took the ```html_snippet```, cleaned it up and added it to my test server, and the Klarna Checkout form does then indeed render :ok_hand: <br>
 
 ![Checkout Widget Renders](https://res.cloudinary.com/n8dawg/image/upload/v1531073336/Checkout.png 'Checkout Widget Renders')
 ___
@@ -15,13 +15,13 @@ ___
 
 ___
 
-> After filling in the Checkout form, Klarna would send a push notification to the merchant via the ```merchant_urls.push``` url in the [merchant_urls](/order-id?id=merchant-data) object in the ```POST``` request. This push notification is for the merchant to create the order in their system and can then acknowledge to Klarna that the order has been registered by sending a ```POST``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/{order_id}/acknowledge```.
+> After filling in the Checkout form, Klarna would send a push notification to the merchant via the ```merchant_urls.push``` url in the [merchant_urls](/order-id?id=merchant-data) object in the ```POST``` request. This push notification is for the merchant to create the order in their system and they can then acknowledge to Klarna that the order has been registered by sending a ```POST``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/{order_id}/acknowledge```.
 <br> 
 ___
 
 !> I tried using the ```order_id``` and performing a ```GET``` request to ```https://api.playground.klarna.com/checkout/v3/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80``` and I do indeed see my order return, but the status is still set to checkout_incomplete and so the html_snippet is still set to be the Checkout Widget. <br>
 
-!> I then tried to acknowledge the purchase by sending a ```POST``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80/acknowledge``` to see if that changes the status of the order so that I could get the html_snippet returned for the Confirmation Widget by performing the previous call again, but I unfortunately get an error stating that no such order exists. <br>
+!> I then tried to acknowledge the purchase by sending a ```POST``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80/acknowledge``` to see if that changes the status of the order so that I could get the html_snippet returned for the Confirmation Widget by performing the previous 'GET' request again, but I unfortunately get an error stating that no such order exists. <br>
 
 ![No such order exists](https://res.cloudinary.com/n8dawg/image/upload/v1531110122/acknowledge.png 'No such order exists?')
 
