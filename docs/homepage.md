@@ -10,7 +10,7 @@ For this section, we'll call our online user _Lagertha_ :girl:, and the site she
 #### Klarna's checkout process consists of the following (smooth) main steps:
 * Lagertha adds a couple of products to her basket on estore.com and proceeds to checkout. <br>
 
-?> A request gets sent to Klarna to create an order. Within this request, the merchant (estore.com) sends along **optional and mandatory parameters** s.a. merchant ID, purchase product details, and merchant urls (used for Klarna to notify the merchant when to store the order on the merchant's systems, to allow for Lagertha to be redirected to estore.com's confirmation page, and to see the Ts&Cs a.o.)
+?> The merchant (estore.com) sends an API request to Klarna to create an order. Within this request, the merchant (estore.com) sends along **optional and mandatory parameters** s.a. merchant ID, purchase product details, and merchant urls (used for Klarna to notify the merchant when to store the order on the merchant's systems, to allow for Lagertha to be redirected to estore.com's confirmation page, and to see the Ts&Cs a.o.)
 
 * The response by Klarna's Checkout API to this request contains a.o. an ```order_id``` value, and an ```html_snippet``` value containing html for an iframe through which the checkout widget is rendered. The status of the order at this point is incomplete<br>
 
