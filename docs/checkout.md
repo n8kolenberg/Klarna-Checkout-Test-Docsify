@@ -21,7 +21,7 @@ ___
 
 !> I tried using the ```order_id``` and performing a ```GET``` request to ```https://api.playground.klarna.com/checkout/v3/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80``` and I do indeed see my order return, but the status is still set to checkout_incomplete and so the html_snippet is still set to be the Checkout Widget. <br>
 
-!> I then tried to acknowledge the purchase by sending a ```POST``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80/acknowledge``` to see if that changes the status of the order so that I could get the html_snippet returned for the Confirmation Widget by performing the previous 'GET' request again, but I unfortunately get an error stating that no such order exists. <br>
+!> I then tried to acknowledge the purchase by sending a ```POST``` request to ```https://api.playground.klarna.com/ordermanagement/v1/orders/2ee89230-ebf6-4437-a51f-cb23c2736a80/acknowledge``` to see if that changes the status of the order so that I could get the html_snippet returned for the Confirmation Widget by performing the previous ```GET``` request again, but I unfortunately get an error stating that no such order exists. <br>
 
 ![No such order exists](https://res.cloudinary.com/n8dawg/image/upload/v1531110122/acknowledge.png 'No such order exists?')
 
