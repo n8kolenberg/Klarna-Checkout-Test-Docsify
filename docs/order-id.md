@@ -9,8 +9,8 @@ For generating AJAX requests, I used the [Axios](https://github.com/axios/axios 
 ```javascript
 
 let url = 'https://api.playground.klarna.com/checkout/v3/orders';
-let username = 'K500638';
-let password = 'aicee*roh1pip2Pu';
+let username = 'XXXX';
+let password = 'XXXX';
 
 axios.post(url, {
     data: JSON.stringify(merchant_data)
@@ -56,8 +56,8 @@ Testing with addition of headers object in Axios request
 containing Basic Authorization 
 */
 let url = 'https://api.playground.klarna.com/checkout/v3/orders';
-let username = 'PK03011_25c46e54003e';
-let password = '9DnLpqfMjAqOTkJW';
+let username = 'XXXX';
+let password = 'XXXX';
 let basicAuth = btoa(`${username} : ${password}`);
 axios.post(url, {
     data: JSON.stringify(data)
