@@ -41,8 +41,8 @@ ___
 !>**401: Request Not Authorised** - It's stated in the [Klarna API reference](https://developers.klarna.com/api/#authentication ':target=_blank') that the username is not the same as the merchant ID, and that it consists of a merchant ID combined with a random string. I therefore signed up for a test account and acquired test API Credentials.
 
 ?> _Test API Credentials:_<br>
-Username: PK03011_25c46e54003e <br>
-Password: 9DnLpqfMjAqOTkJ <br>
+Username: XXXXX <br>
+Password: XXXXX <br>
 
 ___
 
